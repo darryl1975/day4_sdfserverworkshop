@@ -15,7 +15,7 @@ public class Cookie {
 
     List<String> cookieItems = null;
 
-    public void readCookieFile() throws FileNotFoundException {
+    public void readCookieFile() throws FileNotFoundException, IOException {
         cookieItems = new ArrayList<String>();
         
         File file = new File(dirPath + File.separator + fileName);
@@ -32,6 +32,9 @@ public class Cookie {
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+        } finally {
+            br.close();
+            fr.close();
         }
     }
 
